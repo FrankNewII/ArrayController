@@ -115,17 +115,17 @@ class ArrayCtrl {
         if(!from.hasOwnProperty(k)) continue;
         if(!ArrayCtrl.isObject(from[k]))
         {
-          link[k] = from[k];
+          to[k] = from[k];
         } else {
-          this.copy(from[k], link[k] = {}, deep);
+          this.copy(from[k], to[k] = {}, deep);
         }
       }
     } else {
       for(var k in from) {
-        link[k] = obj[k];
+        to[k] = obj[k];
       }
     }
 
-    return link;
+    return to;
   }
 }
