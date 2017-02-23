@@ -2,33 +2,33 @@ class ArrayCtrl {
   constructor(obj) {
     this.originArray = obj;
     this.copy(this.originArray, this.currentObject = {}, true);
-    this.keys = this.getKeys(this.currentObject);
+    this.getKeys();
   }
 
-  getLast(obj) {
-    for(var k in obj || this.currentObject) {}
+  getLast() {
+    for(var k in this.currentObject) {}
 
     return this.currentObject[k];
   }
 
-  getKeys(obj) {
-    return Object.keys(obj);
+  getKeys() {
+    this.keys = Object.keys(this.currentObject);
   }
 
-  copy(orig, link, deep) {
+  copy(link, deep) {
     if(deep) {
-      for(var k in orig) {
-        if(!orig.hasOwnProperty(k)) continue;
-        if(!this.isObject(orig[k]))
+      for(var k in this.currentObject) {
+        if(!this.currentObject.hasOwnProperty(k)) continue;
+        if(!this.isObject(this.currentObject[k]))
         {
-          link[k] = orig[k];
+          link[k] = this.currentObject[k];
         } else {
-          this.copy(orig[k], link[k] = {}, deep);
+          this.copy(this.currentObject[k], link[k] = {}, deep);
         }
       }
     } else {
-      for(var k in orig) {
-        link[k] = orig[k];
+      for(var k in this.currentObject) {
+        link[k] = this.currentObject[k];
       }
     }
 
