@@ -40,7 +40,6 @@ class ArrayCtrl {
   }
 
   get length() {
-    console.log('length');
     if(typeof this.lengthArray !== 'number') {
       let i = 0;
       for(var k in this.currentObject) {
@@ -53,31 +52,26 @@ class ArrayCtrl {
   }
 
   next() {
-    if(typeof this.currentKey !== 'number') {
-      let nextKey = this.currentObject.indexOf(this.currentKey);
+    if(this.currentKey !== undefined) {
+      let nextKey = this.keys.indexOf(this.currentKey);
       let nextKeyName = this.keys[++nextKey];
-      console.log('next', 'this.currentKey', this.currentKey, 'nextKey', nextKey, 'nextKeyName', nextKeyName);
       if(nextKeyName in this.currentObject) {
         this.currentKey = nextKeyName;
         return this.currentObject[nextKeyName];
       }
     } else {
       this.currentKey = this.keys[0];
-      console.log('next - currentExist', 'this.currentKey', this.currentKey, 'nextKey', nextKey, 'nextKeyName', nextKeyName);
       return this.currentObject[this.currentKey];
     }
   }
 
   prev() {
-    if(typeof this.currentKey === 'number') {
-      let nextKey = this.currentObject.indexOf(this.currentKey);
+    if(this.currentKey !== undefined) {
+      let nextKey = this.keys.indexOf(this.currentKey);
       let nextKeyName = this.keys[--nextKey];
-
       if(nextKeyName in this.currentObject) {
         this.currentKey = nextKeyName;
         return this.currentObject[nextKeyName];
-      } else {
-        return false;
       }
     } else {
       this.currentKey = this.keys[0];
@@ -88,7 +82,8 @@ class ArrayCtrl {
   filter(fn) {
     let newObject = {};
     for(let k in this.currentObject) {
-      fn.call(null, this.currentObject[k], k);
+      let currentValue = fn.call(null, this.currentObject[k], k);
+      if(currentValue) newObject[k] = currentValue;
     }
     this.currentObject = newObject;
   }
