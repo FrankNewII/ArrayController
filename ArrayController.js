@@ -101,6 +101,24 @@ class ArrayCtrl {
     }
   }
 
+  add(key, value, replace) {
+    if(this.currentObject[key] && !replace) {
+      console.warn('You try to rewrite object without setting flag - "replace"');
+      return;
+    }
+
+    this.currentObject[key] = this.copy(value, {}, true);
+  }
+
+  cut(key) {
+    if(!this.currentObject[key]) {
+      console.warn('You try to delete undefined key');
+      return;
+    }
+
+    this.currentObject[key] = null;
+  }
+
   isObject(obj) {
     return !(
     typeof obj == 'string' ||
