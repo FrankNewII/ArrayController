@@ -111,17 +111,17 @@ class ArrayCtrl {
 
   static copy(from, to, deep) {
     if(deep) {
-      for(var k in obj) {
-        if(!obj.hasOwnProperty(k)) continue;
-        if(!ArrayCtrl.isObject(obj[k]))
+      for(var k in from) {
+        if(!from.hasOwnProperty(k)) continue;
+        if(!ArrayCtrl.isObject(from[k]))
         {
-          link[k] = obj[k];
+          link[k] = from[k];
         } else {
-          this.copy(obj[k], link[k] = {}, deep);
+          this.copy(from[k], link[k] = {}, deep);
         }
       }
     } else {
-      for(var k in obj) {
+      for(var k in from) {
         link[k] = obj[k];
       }
     }
