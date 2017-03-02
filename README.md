@@ -2,7 +2,9 @@
 
 ####Usage:
 
-`var arr = new ArrayCtrl(Object|Arguments|Array);`
+```javascript
+var arr = new ArrayCtrl(Object|Arguments|Array);
+```
 
 ### methods
 
