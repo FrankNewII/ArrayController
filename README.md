@@ -1,9 +1,9 @@
-# ArrayController (ES6)
+# ArrayModify (ES6)
 
 ####Usage:
 
 ```javascript
-var arr = new ArrayCtrl(Object|Arguments|Array);
+var arr = new ArrayModify(Object|Arguments|Array);
 ```
 
 ### methods

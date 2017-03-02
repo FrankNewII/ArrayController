@@ -1,4 +1,4 @@
-class ArrayCtrl {
+class ArrayModify {
   constructor(obj) {
     this.originArray = obj;
     ArrayCtrl.copy(this.originArray, this.currentObject = {}, true);
