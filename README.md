@@ -3,7 +3,7 @@
 ####Usage:
 
 ```javascript
-var arr = new ArrayModify(Object|Arguments|Array);
+let arr = new ArrayModify(Object|Arguments|Array);
 ```
 
 ### methods
