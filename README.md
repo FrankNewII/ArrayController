@@ -20,7 +20,7 @@ var arr = new ArrayCtrl(Object|Arguments|Array);
 
 **filter** - procedure which will call funarg for all items in object.
 
-**add** - will append value by key. If current key is exist in you will get warning, and value will not to set.
+**add** - procedure will append value by key. If current key is exist in you will get warning, and value will not to set.
 
 **cut** - procedure which set current key in object to null
 
