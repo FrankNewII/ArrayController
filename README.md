@@ -1,5 +1,9 @@
 # ArrayController (ES6)
 
+####Usage:
+
+var arr = new ArrayCtrl(Object|Arguments|Array);
+
 ### methods
 
 **getLast** - return last property from array
