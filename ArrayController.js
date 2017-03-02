@@ -104,7 +104,7 @@ class ArrayCtrl {
       if(!ArrayCtrl.isObject(obj[k])) {
         fn.call(null, obj[k], k);
       } else {
-        this.recursion(obj[k], fn);
+        ArrayCtrl.recursion(obj[k], fn);
       }
     }
   }
